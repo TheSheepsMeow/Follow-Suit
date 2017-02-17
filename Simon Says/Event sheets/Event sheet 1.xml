@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="Score" sid="773054145440793" static="0" type="number">0</variable>
+        <event-block sid="182681472384455">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="395277571033645" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="114457244909873" type="SpriteFont">
+                    <param id="0" name="Text">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="571747614304445">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="724823007427486" type="System">
+                    <param id="0" name="Interval (seconds)">random(3,6)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="4" name="Set animation" sid="519512978531636" type="Simon">
+                    <param id="0" name="Animation">choose(&quot;Egg&quot;,&quot;Glass&quot;,&quot;Heart&quot;,&quot;Ore&quot;)</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="969027427493601" title="Egg">
+            <sub-events>
+                <event-block sid="479088206052552">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="891981239614039" type="Touch">
+                            <param id="0" name="Object">Egg</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="536667194800159" type="Audio">
+                            <param id="0" name="Audio file">Chick</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="655890516127626">
+                            <conditions>
+                                <condition disabled="1" id="2" name="Is playing" sid="460044711400859" type="Simon">
+                                    <param id="0" name="Animation">&quot;Egg&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="488970307909579" type="Simon">
+                                    <param id="0" name="Animation">choose(&quot;Egg&quot;,&quot;Glass&quot;,&quot;Heart&quot;,&quot;Ore&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="676989306273572" type="Egg">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="618830717858195" type="Egg">
+                                    <param id="0" name="Animation">&quot;Chick&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="762981687079044" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="929677734700947" type="SpriteFont">
+                                    <param id="0" name="Text">Score</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="960858476655104" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="352414031332643" type="Egg" />
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="503236540884412">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="416017930777031" type="Simon">
+                                    <param id="0" name="Animation">&quot;Heart&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="362647816714833" type="Simon">
+                                    <param id="0" name="Animation">&quot;Glass&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="739412262385313" type="Simon">
+                                    <param id="0" name="Animation">&quot;Ore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="413140644038035" type="Egg">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="833764180486017" type="Egg">
+                                    <param id="0" name="Animation">&quot;BadEgg&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="220214260695121" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="332101139166682" type="Egg" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="179705318472217">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="515578767367323" type="Egg" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-3" name="Create object" sid="236749157704034" type="System">
+                            <param id="0" name="Object to create">Egg</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="834448793066800" type="System">
+                            <param id="0" name="Object to create">Egg</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">26</param>
+                            <param id="3" name="Y">330</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="462734432590051" title="Ore">
+            <sub-events>
+                <event-block sid="987165442606357">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="162416263080364" type="Touch">
+                            <param id="0" name="Object">Ore</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="367079436183071">
+                            <conditions>
+                                <condition disabled="1" id="2" name="Is playing" sid="590778395769903" type="Simon">
+                                    <param id="0" name="Animation">&quot;Ore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="442776640381447" type="Simon">
+                                    <param id="0" name="Animation">choose(&quot;Egg&quot;,&quot;Glass&quot;,&quot;Heart&quot;,&quot;Ore&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="808081249150266" type="Ore">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="120553055309789" type="Ore">
+                                    <param id="0" name="Animation">&quot;Gem&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="172066217020857" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="732042373870406" type="SpriteFont">
+                                    <param id="0" name="Text">Score</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="916313991262611" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="296126247819098" type="Ore" />
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="685780166288466">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="617755939039085" type="Simon">
+                                    <param id="0" name="Animation">&quot;Heart&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="925101235782143" type="Simon">
+                                    <param id="0" name="Animation">&quot;Glass&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="279913162238850" type="Simon">
+                                    <param id="0" name="Animation">&quot;Egg&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="381080708026021" type="Ore">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="711538345267287" type="Ore">
+                                    <param id="0" name="Animation">&quot;Junk&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="199407302668242" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="698233724852003" type="Ore" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="566383471911158">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="316743345260501" type="Ore" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-3" name="Create object" sid="483739930877009" type="System">
+                            <param id="0" name="Object to create">Ore</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="458419492027662" type="System">
+                            <param id="0" name="Object to create">Ore</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">113</param>
+                            <param id="3" name="Y">330</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="114942754479690">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="384943324938163" title="Heart">
+            <sub-events>
+                <event-block sid="276940184566964">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="314156274940966" type="Touch">
+                            <param id="0" name="Object">Heart</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="590117311546094" type="Audio">
+                            <param id="0" name="Audio file">Heart</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="822131084515030">
+                            <conditions>
+                                <condition disabled="1" id="2" name="Is playing" sid="154874013281723" type="Simon">
+                                    <param id="0" name="Animation">&quot;Heart&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="822729140337179" type="Simon">
+                                    <param id="0" name="Animation">choose(&quot;Egg&quot;,&quot;Glass&quot;,&quot;Heart&quot;,&quot;Ore&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="666666453770995" type="Heart">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="498263286964613" type="Heart">
+                                    <param id="0" name="Animation">&quot;Kiss&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="434107548853191" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="880768296378806" type="SpriteFont">
+                                    <param id="0" name="Text">Score</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="188115199099626" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="271826994513318" type="Heart" />
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="916376743596134">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="267319004250867" type="Simon">
+                                    <param id="0" name="Animation">&quot;Ore&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="301942196333933" type="Simon">
+                                    <param id="0" name="Animation">&quot;Glass&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="480915174297556" type="Simon">
+                                    <param id="0" name="Animation">&quot;Egg&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="238795925560927" type="Heart">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="857115581024127" type="Heart">
+                                    <param id="0" name="Animation">&quot;Broken&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="869964385634269" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="232809180619194" type="Heart" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="491453134907411">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="846626631535881" type="Heart" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-3" name="Create object" sid="364785033303345" type="System">
+                            <param id="0" name="Object to create">Heart</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="157032515290658" type="System">
+                            <param id="0" name="Object to create">Heart</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">214</param>
+                            <param id="3" name="Y">330</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="108894822554082" title="Glass">
+            <sub-events>
+                <event-block sid="179731792853718">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="489127423570920" type="Touch">
+                            <param id="0" name="Object">Glass</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="421186152081814" type="Audio">
+                            <param id="0" name="Audio file">Glass (1)</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="523396502965931">
+                            <conditions>
+                                <condition disabled="1" id="2" name="Is playing" sid="420569726138514" type="Simon">
+                                    <param id="0" name="Animation">&quot;Glass&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="114336583050484" type="Simon">
+                                    <param id="0" name="Animation">choose(&quot;Egg&quot;,&quot;Glass&quot;,&quot;Heart&quot;,&quot;Ore&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="914716617654012" type="Glass">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="876707218501722" type="Glass">
+                                    <param id="0" name="Animation">&quot;GoodBreak&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="423392456894847" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="525414058383233" type="SpriteFont">
+                                    <param id="0" name="Text">Score</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="785090632988742" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="596540950029296" type="Glass" />
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="214255939047399">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="308443846954222" type="Simon">
+                                    <param id="0" name="Animation">&quot;Ore&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="584130262662010" type="Simon">
+                                    <param id="0" name="Animation">&quot;Heart&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="328358761391528" type="Simon">
+                                    <param id="0" name="Animation">&quot;Egg&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="130470520973181" type="Glass">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="310303663822195" type="Glass">
+                                    <param id="0" name="Animation">&quot;BadBreak&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="400626175674799" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="140536231854277" type="Glass" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="857763449252870">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="289308957421109" type="Glass" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-3" name="Create object" sid="621340864608290" type="System">
+                            <param id="0" name="Object to create">Glass</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="668980731917458" type="System">
+                            <param id="0" name="Object to create">Glass</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">295</param>
+                            <param id="3" name="Y">330</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment></comment>
+        <event-block sid="723664348235784">
+            <conditions>
+                <condition id="2" name="Is playing" sid="612512937740735" type="Simon">
+                    <param id="0" name="Animation">&quot;Egg&quot;</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="660626093025409" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="301280659516951" type="Audio">
+                    <param id="0" name="Audio file">Chick</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="357393672703674">
+            <conditions>
+                <condition id="2" name="Is playing" sid="324435238373301" type="Simon">
+                    <param id="0" name="Animation">&quot;Glass&quot;</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="401571713921533" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="441001278319464" type="Audio">
+                    <param id="0" name="Audio file">Glass (1)</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="782591307620989">
+            <conditions>
+                <condition id="2" name="Is playing" sid="368038029819387" type="Simon">
+                    <param id="0" name="Animation">&quot;Heart&quot;</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="142834225605128" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="777593705447772" type="Audio">
+                    <param id="0" name="Audio file">Heart</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="629142995663139">
+            <conditions>
+                <condition id="2" name="Is playing" sid="381546075726662" type="Simon">
+                    <param id="0" name="Animation">&quot;Ore&quot;</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="477589418157939" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="365100756746631" type="Audio">
+                    <param id="0" name="Audio file">Ore</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" disabled="1" sid="346325085337094" title="Group">
+            <sub-events>
+                <event-block disabled="1" sid="974119401177685">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <comment></comment>
+                <event-block disabled="1" sid="933660933620148">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="147113673900240" type="System">
+                            <param id="0" name="Interval (seconds)">random(5,6)</param>
+                        </condition>
+                        <condition id="4" inverted="1" name="Is touching object" sid="634610667722857" type="Touch">
+                            <param id="0" name="Object">Egg</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="650539091029355" type="Egg" />
+                        <action id="-16" name="Wait" sid="748598923818137" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="908013518350621" type="System">
+                            <param id="0" name="Object to create">Egg</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="278810463310400">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="642470936493279" type="System">
+                            <param id="0" name="Interval (seconds)">random(5,6)</param>
+                        </condition>
+                        <condition id="4" inverted="1" name="Is touching object" sid="333538566471940" type="Touch">
+                            <param id="0" name="Object">Heart</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="128667315261679" type="Heart" />
+                        <action id="-16" name="Wait" sid="523067996792185" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="792849388638399" type="System">
+                            <param id="0" name="Object to create">Heart</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="766997263461360">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="771196258970397" type="System">
+                            <param id="0" name="Interval (seconds)">random(5,6)</param>
+                        </condition>
+                        <condition id="4" inverted="1" name="Is touching object" sid="513725178474443" type="Touch">
+                            <param id="0" name="Object">Glass</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="809046098314439" type="Glass" />
+                        <action id="-16" name="Wait" sid="103666701676107" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="899064042354716" type="System">
+                            <param id="0" name="Object to create">Glass</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="522140707996459">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="347425163856731" type="System">
+                            <param id="0" name="Interval (seconds)">random(5,6)</param>
+                        </condition>
+                        <condition id="4" inverted="1" name="Is touching object" sid="655446305475736" type="Touch">
+                            <param id="0" name="Object">Ore</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="914686763285485" type="Ore" />
+                        <action id="-16" name="Wait" sid="799980555148094" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="748051779793874" type="System">
+                            <param id="0" name="Object to create">Ore</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(LayoutWidth)</param>
+                            <param id="3" name="Y">random(LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="147192009852457">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="964325891042943" title="Patches">
+            <sub-events>
+                <event-block sid="886076740354088">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="410035839472879">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="988484809931722" type="Egg">
+                            <param id="0" name="Object">hardPatch</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="347521508164214" type="Egg">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="273254048746783" type="Egg">
+                            <param id="0" name="Animation">&quot;BadEgg&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="624501404164791" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="558026408632434" type="Egg" />
+                    </actions>
+                </event-block>
+                <event-block sid="477965166159701">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="509675212393706" type="Glass">
+                            <param id="0" name="Object">hardPatch</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="958743500396977" type="Glass">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="504240190444571" type="Glass">
+                            <param id="0" name="Animation">&quot;BadBreak&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="802391921439833" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="978910007744756" type="Glass" />
+                    </actions>
+                </event-block>
+                <event-block sid="623422821040583">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="380301995745534" type="Heart">
+                            <param id="0" name="Object">hardPatch</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="586805748688863" type="Heart">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="644975893750530" type="Heart">
+                            <param id="0" name="Animation">&quot;Broken&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="555092046223659" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="682621856896517" type="Heart" />
+                    </actions>
+                </event-block>
+                <event-block sid="698139481635683">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="897829180678186" type="Ore">
+                            <param id="0" name="Object">hardPatch</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="421503290834619" type="Ore">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="829067154982706" type="Ore">
+                            <param id="0" name="Animation">&quot;Junk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="394919205098039" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="102211429830064" type="Ore" />
+                    </actions>
+                </event-block>
+                <event-block sid="681532605092829">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="772647480983646">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="948126368712495">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="862722753461598" title="Group3">
+            <sub-events>
+                <event-block sid="297392788427906">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="906456001962005">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="829370516644013" type="Egg" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="357887933093171" type="Egg">
+                            <param id="0" name="Angle">270</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="732889926205511">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="775332638426333" type="Glass" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="990832649753038" type="Glass">
+                            <param id="0" name="Angle">270</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="102764952723959">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="755872039571989" type="Heart" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="249353415959910" type="Heart">
+                            <param id="0" name="Angle">270</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="181700485353050">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="401974363160255" type="Ore" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="309539883965888" type="Ore">
+                            <param id="0" name="Angle">270</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="750362482185642" title="Group4">
+            <sub-events>
+                <event-block sid="758105647881485">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
